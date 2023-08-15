@@ -20,7 +20,8 @@ const Budget = () => {
         <input
         required='required'
         type='number'
-        id='Budget'
+        id='cost'
+        
         style={{size: 10}}
         onChange={(event) => setBudget(event.target.value)}>
         </input>
