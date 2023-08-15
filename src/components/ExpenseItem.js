@@ -4,26 +4,47 @@ import { AppContext } from '../context/AppContext';
 import { FaTimesCircle } from 'react-icons/fa';
 
 const ExpenseItem = (props) => {
-    const { dispatch, Location} = useContext(AppContext);
+    const { dispatch, Currency} = useContext(AppContext);
 
-    const handleDeleteItem = () => {
+    const handleAddExpense = () => {
         const item = {
-            department: props.department,
+            name: props.name,
         };
 
         dispatch({
-            type: 'DELETE_ITEM',
+            type: 'ADD_EXPENSE',
             payload: item,
         });
     };
+    const handleRedExpense = () => {
+        const item = {
+            name: props.name,
+        };
+
+        dispatch({
+            type: 'RED_EXPENSE',
+            payload: item,
+        });
+    };
+    const handleDeleteExpense = () => {
+        const item = {
+            name: props.name,
+        };
+
+        dispatch({
+            type: 'DELETE_EXPENSE',
+            payload: item,
+        });
+    };        
 
 
     return (
         <tr>
-        <td>{props.department}</td>
-        <td>{Currency}{props.allocation}</td>
-        <td><FaPlusCircle size='2.2em' color="green" onClick={handleDeleteItem}></FaPlusCircle></td>
-        <td><FaMinusCircle size='2.2em' color="red" onClick={handleDeleteItem}></FaMinusCircle></td>
+        <td>{props.name}</td>
+        <td>{Currency}{props.cost}</td>
+        <td><FaPlusCircle size='2.2em' color="green" onClick={handleAddExpense}></FaPlusCircle></td>
+        <td><FaMinusCircle size='2.2em' color="red" onClick={handleRedExpense}></FaMinusCircle></td>
+        <td><IoCloseCircle size='2.2em' color="black" onClick={handleDeleteExpense}></IoCloseCircle></td>
         </tr>
     );
 };

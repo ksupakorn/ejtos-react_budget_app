@@ -13,14 +13,14 @@ const Currency = () => {
     
 
   return (
-        <div className='alert alert-secondary'> Currency {
-      <select name="Currency" id="Currency" onChange={event=>changeCurrency(event.target.value)}>
+        <div class="btn btn-success"> Currency ({
+        <select class="btn btn-success dropdown-toggles"  name="Currency" id="Currency" onChange={event=>changeCurrency(event.target.value)}>
         <option value="$">$ Dollar</option>
         <option value="£">£ Pond</option>
         <option value="€">€ Euro</option>
         <option value="₹">₹ Ruppee</option>
       </select>	
-      }	
+      })
     </div>
     );
 };

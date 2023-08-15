@@ -2,8 +2,14 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-  const { Currency } = useContext(AppContext);
-  const [budget, setBudget] = useState('');
+  const { Currency,budget,dispatch } = useContext(AppContext);
+
+  const setBudget = (val)=>{
+    dispatch({
+        type: 'SET_BUDGET',
+        payload: val,
+    })
+}
 
 
   return (
@@ -15,7 +21,7 @@ const Budget = () => {
         id='budget'
         value={budget}
         style={{size: 10}}
-        onChange={(event) => setBudget(event.target.value)}>
+        onChange={event=>setBudget(event.target.value)}>
         </input>
 
       }	
