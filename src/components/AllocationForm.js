@@ -37,7 +37,7 @@ const AllocationForm = (props) => {
                     <div className="input-group-prepend">
                 <label className="input-group-text" htmlFor="inputGroupSelect01">Department</label>
                 </div>
-                  <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setDepartment(event.target.value)}>
+                  <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setName(event.target.value)}>
                         <option defaultValue>Choose...</option>
                         <option value="Marketing" name="Marketing">Marketing</option>
                 <option value="Finanace" name="Finanace">Finanace</option>
