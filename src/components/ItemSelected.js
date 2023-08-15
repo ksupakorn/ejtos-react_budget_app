@@ -4,26 +4,26 @@ import { AppContext } from '../context/AppContext';
 const ItemSelected = (props) => {
     const { dispatch} = useContext(AppContext);
 
-    const [department, setDepartment] = useState('');
-    const [allocation, setAllocation] = useState('');
+    const [name, setName] = useState('');
+    const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
     
 
     const submitEvent = () => {
 
         const item = {
-            department: department,
-            allocation: parseInt(allocation),
+            name: name,
+            cost: parseInt(cost),
         };
 
         if(action === "Reduce") {
             dispatch({
-                type: 'RED_ALLOCATION',
+                type: 'RED_EXPENSE',
                 payload: item,
             });
         } else {
                 dispatch({
-                    type: 'ADD_ALLOCATION',
+                    type: 'ADD_EXPENSE',
                     payload: item,
                 });
             }
@@ -59,9 +59,9 @@ const ItemSelected = (props) => {
                         required='required'
                         type='number'
                         id='cost'
-                        value={allocation}
+                        value={cost}
                         style={{size: 10}}
-                        onChange={(event) => setAllocation(event.target.value)}>
+                        onChange={(event) => setCost(event.target.value)}>
                         </input>
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
